@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Beyond Gradient Descent</title>
+    <link rel="stylesheet" type="text/css" href="./styles.css" />
+  </head>
+
+  <body>
+    <div id="title-container">
+      <a id="title">Beyond Gradient Descent</a>
+      <a id="subtitle">
+        High-dimensional, non-convex optimization in terminal-reward RL. 
+      </a>
+    </div>
+    <hr />
+    <div id="abstract-container">
+      <a id="abstract-header">Abstract</a>
+      At its core Neural Network construction/parametric model creation is
+      a problem of replicating a real world distribution with incomplete
+      representations which hopefully contain mututual information. This is 
+      fundementally a KL-Divergence minimization problem where added entropy
+      is our remaining uncertainty after applying our learning proxy distribution.<br>
+      <br>
+      In this blog post we take a first principles approach to the problem 
+      of parameter selection in statistics modeling. We focus first on loss
+      surfaces when utilizing differentiable loss function minimization for
+      backpropogation on neural networks. We look at stochastic gradient descent
+      and how mini-batch size changes convergence behavior. We then consider the
+      pitfalls of selectively building a proxy distribution for a real world goal.
+      Finally we move beyond GD methods to take a more fundemental view of a
+      model, a non-convex loss search space, and what a search space looks like
+      when we search it without gradients, but rather through morphing the search
+      space itself.
+    </div>    
+    <hr />
+    <div id="content-container">
+      <a class="header">Neural Network Optimization</a>
+      Ultimately an NN is 
+      just a large function composed of smaller logistic regressions (usually).
+      Each intermediate layer is a latent feature vector informing future 
+      logistic regression inputs which ultimately result in an ideal output.
+      An RNN expands this idea to maintain a sequentially updated intermediate
+      layer, a "memory"-esque latent feature vector which it utilizes to send
+      actual "information" learned from current distribution forward into future 
+      inferences. It is a large Bayesian modeling machine updating priors with 
+      any new information it gleams and our core goal as architects is deciding
+      the process by which we gleam information and how we determine information 
+      present in our ever-growing datasets is worth utilizing.
+
+      The ML community has lost its way here. Gradient Descent and the typical NN
+      model building approaches are often posed as an "art" rather than a science.
+      The field of statistics is just starting to consider programmtic approaches. 
+      We forget NNs are just new incredibly large parametric models from classic
+      statistics. If we remember eachneuron is its own logicistic regression. Each 
+      Cycle of the RNN is its own logistic combination sequence information a new
+      logistic combination seqeunce. Than we can see the logical next step. Use the
+      information gathered during distribution replication to tailor model construction.
+      NEAT and DARTs are two examples of NAS. But looking beyond NAS to simply updating 
+      a latent feature vector that is edited by its own model based on input. This then
+      informs consturction of the function for the next distributional comparioson.
+      "parametrized computational graph construction" whereby data, not art, informs
+      our model construction. 
+    </div>
+  </body>
+  
+</html>
